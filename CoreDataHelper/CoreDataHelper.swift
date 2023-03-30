@@ -84,15 +84,15 @@ public extension CDHelperEntity {
         return self._fetchUsingFetchRequest(self._buildFindRequest(predicate, usingSortDescriptors: sortDescriptors, limit: fetchLimit))
     }
     
-    public static func asynchronouslyFindAll(usingSortDescriptors sortDescriptors: [NSSortDescriptor]! = nil, completion: ([Self]) -> Void) {
+    public static func asynchronouslyFindAll(usingSortDescriptors sortDescriptors: [NSSortDescriptor]! = nil, completion: @escaping ([Self]) -> Void) {
         self._asynchronouslyFetchUsingRequest(self._buildFindAllRequest(usingSortDescriptors: sortDescriptors), completion: completion)
     }
     
-    public static func asynchronouslyFindOne(_ predicate: String, completion: (Self?) -> Void) {
+    public static func asynchronouslyFindOne(_ predicate: String, completion: @escaping (Self?) -> Void) {
         self._asynchronouslyFetchUsingRequest(self._buildFindOneRequest(predicate), completion: completion)
     }
     
-    public static func asynchronouslyFind(_ predicate: String, usingSortDescriptors sortDescriptors: [NSSortDescriptor]! = nil, limit fetchLimit: Int! = nil, completion: ([Self]) -> Void) {
+    public static func asynchronouslyFind(_ predicate: String, usingSortDescriptors sortDescriptors: [NSSortDescriptor]! = nil, limit fetchLimit: Int! = nil, completion: @escaping ([Self]) -> Void) {
         self._asynchronouslyFetchUsingRequest(self._buildFindRequest(predicate, usingSortDescriptors: sortDescriptors, limit: fetchLimit), completion: completion)
     }
     
